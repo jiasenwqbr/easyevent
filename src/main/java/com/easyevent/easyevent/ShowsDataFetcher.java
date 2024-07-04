@@ -1,4 +1,4 @@
-package com.easyevent.test;
+package com.easyevent.easyevent;
 
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsQuery;
@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
  */
 @DgsComponent
 public class ShowsDataFetcher {
+
     private final List<Show> shows = List.of(
             new Show("Stranger Things", 2016),
             new Show("Ozark", 2017),
@@ -24,10 +25,13 @@ public class ShowsDataFetcher {
 
     @DgsQuery
     public List<Show> shows(@InputArgument String titleFilter) {
-        if (titleFilter == null) {
+        if(titleFilter == null) {
             return shows;
         }
+
         return shows.stream().filter(s -> s.title().contains(titleFilter)).collect(Collectors.toList());
     }
 }
+
 record Show(String title, int releaseYear) {}
+
