@@ -1,4 +1,4 @@
-package com.easyevent.easyevent;
+package com.easyevent.fecher;
 
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsQuery;
